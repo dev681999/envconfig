@@ -202,7 +202,7 @@ func Process(prefix string, spec interface{}) error {
 
 		req := info.Tags.Get("required")
 		if !ok && def == "" {
-			if isTrue(req) {
+			if isTrue(req) && !info.Field.IsValid() {
 				key := info.Key
 				if info.Alt != "" {
 					key = info.Alt
